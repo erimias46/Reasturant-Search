@@ -1,5 +1,6 @@
 import { StatusBar } from 'expo-status-bar';
 import { StyleSheet, Text, View } from 'react-native';
+import CatagoryItem from './src/components/CatagoryItem';
 import Header from './src/components/Header';
 import Search from './src/components/Search';
 
@@ -9,6 +10,7 @@ export default function App() {
       
       <Header />
       <Search />
+      <CatagoryItem />
       
       <StatusBar style="auto" />
     </View>
