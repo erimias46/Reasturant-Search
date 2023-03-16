@@ -3,13 +3,17 @@ import React from 'react'
 import { elevation } from '../common/styles'
 
 
-export default function CatagoryItem() {
+export default function CatagoryItem({ name, imageUrl,index ,active,handlePress}) {
+    console.log(active)
+   
+   
   return (
-      <View style={[styles.container, styles.elevation]}>
-          <View>
-              <Image source={require("../assets/images/burger.png")} style={styles.image} />
+      <View style={[styles.container, styles.elevation, index === 0 ? { marginLeft: 25 } : { marginLeft: 15 },
+      active ? { backgroundColor: "rgb(241,186,87)" } : { backgroundColor: "white" }]}>
+          <View style={styles.imageContainer}>
+              <Image source={imageUrl} style={styles.image} />
           </View>
-          <Text> Burger</Text>
+          <Text style={styles.header}> {name}</Text>
           
   
     </View>
@@ -22,8 +26,8 @@ const styles = StyleSheet.create({
         height: 100,
         borderRadius: 15,
         marginVertical: 15,
-        marginHorizontal:25,
-        backgroundColor: 'white',
+       
+        backgroundColor: "white",
         alignItems:"center",
         justifyContent: "center",
         borderRadius:80
@@ -32,5 +36,19 @@ const styles = StyleSheet.create({
     image: {
         width: 35,
         height:35
+    },
+    imageContainer: {
+        width: 50,
+        height: 50,
+        backgroundColor: 'white',
+        alignItems: 'center',
+        justifyContent: 'center',
+        borderRadius: 50,
+        marginBottom: 5
+        
+    },
+    header: {
+        fontWeight: 'bold',
+        fontSize:15
     }
 })
