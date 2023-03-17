@@ -8,7 +8,7 @@ import { useState } from 'react';
 
 export default function App() {
  
-  const [term, setTerm] = useState();
+  const [term, setTerm] = useState('Burger');
 
   const commonCatagories = [
     {
@@ -39,7 +39,7 @@ export default function App() {
   return (
     <View style={styles.container}>
       <Header />
-      <Search />
+      <Search setTerm={ setTerm} />
       <View>
         <FlatList
           horizontal
