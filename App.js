@@ -4,6 +4,8 @@ import CatagoryItem from './src/components/CatagoryItem';
 import Header from './src/components/Header';
 import Search from './src/components/Search';
 import { useState } from 'react';
+import Catagories from './src/components/Catagories';
+import Restaurants from './src/components/Restaurants';
 
 
 export default function App() {
@@ -40,23 +42,8 @@ export default function App() {
     <View style={styles.container}>
       <Header />
       <Search setTerm={ setTerm} />
-      <View>
-        <FlatList
-          horizontal
-          data={commonCatagories}
-          renderItem={({ item ,index}) => {
-            return <CatagoryItem name={item.name} imageUrl={item.imageUrl} index={index}
-              active={item.name === term} handlePress={() => {
-                
-                setTerm(item.name)
-              }} />;
-          }}
-          showsHorizontalScrollIndicator={false}
-          keyExtractor={(catagory) => {
-            catagory.name
-          }}
-        />
-      </View>
+      <Catagories setTerm={setTerm} term={term} catagories={commonCatagories} />
+      <Restaurants />
 
       <StatusBar style="auto" />
     </View>
@@ -65,11 +52,9 @@ export default function App() {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+   
     backgroundColor: '#fff',
     
   },
-  CatagoryItem: {
-    flexDirection:'row'
-  }
+  
 });
