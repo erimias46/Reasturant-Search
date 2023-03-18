@@ -26,8 +26,9 @@ const ResturantScreen = ({ navigation }) => {
     
    
   return (
-    <View>
-      <FlatList
+      <View>
+          {data && (
+              <FlatList
         data={data}
         keyExtractor={(photo) => photo}
         
@@ -35,6 +36,8 @@ const ResturantScreen = ({ navigation }) => {
           return <Image source={{uri:item}} style={{width:imagewidth,height:imageHeight}} />;
         }}
       />
+          )}
+      
     </View>
   );
 }
