@@ -13,12 +13,12 @@ const Restaurants = ({term}) => {
 
         
     }, [term])
-    console.log({ data: data })
+   
     if (loading)
         return (<ActivityIndicator size='large' marginVertical={30} />)
     if (error)
         return (<View style={styles.container}>
-            <Text style={styles.header}>{eroor}</Text>
+            <Text style={styles.header}>{error}</Text>
         </View>)
 
     

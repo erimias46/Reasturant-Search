@@ -1,35 +1,29 @@
 import yelp from "../api/yelp";
 import { useState } from "react";
 export default () => {
-  const [results, setResults] = useState({
+  const [result, setResult] = useState({
     data: null,
     loading: false,
     error: null,
   });
-  const searchResturant = async (term) => {
-    setResults({
+  const searchResturant = async (id) => {
+    setResult({
       data: null,
       loading: true,
       error: null,
     });
-      try {
-        
-      const response = await yelp.get("/search?", {
-        params: {
-          limit: 15,
-          term,
-          location: "Toronto",
-        },
-      });
+    try {
+      
+        const response = await yelp.get(`/${id}`, {});
        
 
-      setResults({
-        data: response.data.businesses,
+      setResult({
+        data: response.data.photos,
         loading: false,
         error: null,
       });
     } catch (err) {
-      setResults({
+      setResult({
         data: null,
         loading: false,
         error: "Something went wrong",
@@ -37,5 +31,5 @@ export default () => {
     }
   };
 
-  return [results, searchResturant];
+  return [result, searchResturant];
 };
